@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Stocks - Medicine Donation Portal</title>
+    <link rel="stylesheet" href="dmc.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="navbar">
+        <nav>
+            <a href="#" class="logo"><i class="fas fa-medkit"></i> Medicine Donation Portal</a>
+            <ul class="nav-links">
+                <li><a href="landing_page.html" class="h border">Home</a></li>
+                <li><a href="Profile.html" class="p border">Profile</a></li>
+                <li><a href="med_stocks.html" class="r border">Medicine Stocks</a></li>
+                <li><a href="ngo.html" class="n border">NGOs/Hospitals</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="med-stocks-main">
+        <section class="page-header">
+            <h1>Donate Medicine</h1>
+            <p>Help us by listing your unused, unexpired medicines. Your donation can save lives!</p>
+        </section>
+
+        <section class="donation-form-section">
+            <div class="donation-form-container">
+                <h2>List Your Medicines Here</h2>
+                <form class="donation-form">
+                    <div class="form-group">
+                        <label for="medicine-name">Medicine Name:</label>
+                        <input type="text" id="medicine-name" name="medicine-name" placeholder="e.g., Paracetamol" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">Quantity:</label>
+                        <input type="number" id="quantity" name="quantity" min="1" placeholder="e.g., 2" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="expiry-date">Expiry Date:</label>
+                        <input type="date" id="expiry-date" name="expiry-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dosage">Dosage/Strength:</label>
+                        <input type="text" id="dosage" name="dosage" placeholder="e.g., 500mg">
+                    </div>
+                    <div class="form-group">
+                        <label for="packaging">Packaging:</label>
+                        <select id="packaging" name="packaging">
+                            <option value="sealed">Sealed</option>
+                            <option value="partially-used">Partially Used</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="donor-info">Your Contact Info:</label>
+                        <textarea id="donor-info" name="donor-info" rows="3" placeholder="Enter your name, email, or phone number"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Submit Donation</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <p>iupc@example.com</p>
+            <p>2365479258</p>
+        </div>
+        <div class="footer-col">
+            <h4>Disclaimer</h4>
+            <p>All medicines are donated and distributed with the utmost care. We do not guarantee the condition or suitability of donated medicines.</p>
+        </div>
+    </footer>
+</body>
+</html>

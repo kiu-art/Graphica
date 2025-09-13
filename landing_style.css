@@ -1,0 +1,201 @@
+body {
+    margin: 0;
+    font-family: inter, sans-serif;
+    color: #1f2937;
+    background: #fff;
+}
+
+.border:hover{
+    border: 3px solid #22c55e;
+    border-radius: 5px;
+}
+
+.navbar {
+    background: white;
+    padding: 15px 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    align-content: space-evenly;
+}
+.navbar nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+}
+.logo i {
+    color: #22c55e;
+    margin-right: 8px;
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    font-size: larger;
+    font-weight: 800;
+}
+.nav-links li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+.nav-links li a:hover {
+    color: #22c55e;
+}
+
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background: #f9f9f9;
+    flex-wrap: wrap;
+}
+.hero-text {
+    max-width: 500px;
+
+}
+.hero-text h1 {
+    font-size: 70px;
+    margin-bottom: 15px;
+    font-weight: 780;
+    width: 600px;
+}
+.hero-text p {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-primary {
+    background: #22c55e;
+    color: white;
+    border: none;
+    font-size: larger;
+    font-weight: 800;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+.btn-primary:hover {
+    background: #22c55e;
+}
+.btn-secondary {
+    background: white;
+    color: #22c55e;
+    border: 2px solid #22c55e;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: larger;
+    font-weight: 800;
+    border-radius: 6px;
+}
+.btn-secondary:hover {
+    background: #e8f5e9;
+}
+.hero-image img {
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+
+.impact {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 60px 20px;
+    background: white;
+    flex-wrap: wrap;
+    font-size: larger;
+}
+.impact-card {
+    background: #f2f2f2;
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    width: 400px;
+    
+}
+.impact-card i {
+    font-size: 50px;
+    color: #22c55e;
+    margin-bottom: 10px;
+}
+.impact-card p {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.impact-card h2 {
+    font-size: 35px;
+    margin: 10px;
+}
+
+
+.how-it-works {
+    text-align: center;
+    padding: 60px 20px;
+}
+.how-it-works h2 {
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+.steps {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+.step {
+    width: 300px;
+    text-align: center;
+}
+.step h3{
+    font-size: 25px;
+}
+.step p{
+    font-size: 18px;
+}
+.step i {
+    font-size: 40px;
+    color: #22c55e;
+    margin-bottom: 10px;
+}
+
+
+.footer {
+    background: #222;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 20px;
+    flex-wrap: wrap;
+}
+.footer h4 {
+    margin-bottom: 15px;
+}
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+.footer ul li {
+    margin-bottom: 8px;
+}
+.footer ul li a {
+    text-decoration: none;
+    color: #aaa;
+}
+.footer ul li a:hover {
+    color: white;
+}
+.footer p {
+    color: #aaa;
+    font-size: 14px;
+}

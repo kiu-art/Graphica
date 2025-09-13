@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Medicine Donation Portal</title>
+    <link rel="stylesheet" href="styleprofile.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="40"><path fill="#23c754" d="M256 120L256 160L384 160L384 120C384 115.6 380.4 112 376 112L264 112C259.6 112 256 115.6 256 120zM208 128L208 120C208 89.1 233.1 64 264 64L376 64C406.9 64 432 89.1 432 120L432 544L208 544L208 128zM160 240L160 544L128 544C92.7 544 64 515.3 64 480L64 224C64 188.7 92.7 160 128 160L160 160L160 240zM480 544L480 160L512 160C547.3 160 576 188.7 576 224L576 480C576 515.3 547.3 544 512 544L480 544zM308 272C299.2 272 292 279.2 292 288L292 324L256 324C247.2 324 240 331.2 240 340L240 364C240 372.8 247.2 380 256 380L292 380L292 416C292 424.8 299.2 432 308 432L332 432C340.8 432 348 424.8 348 416L348 380L384 380C392.8 380 400 372.8 400 364L400 340C400 331.2 392.8 324 384 324L348 324L348 288C348 279.2 340.8 272 332 272L308 272z"/></svg>
+                <span>Medicine Donation Portal</span>
+            </div>
+            <nav class="main-nav">
+                <a class="border" href="landing_page.html">Home</a>
+                <a class="border" href="#">Profile</a>
+                <a class="border" href="med_stocks.html">Med-Stocks</a>
+                <a class="border" href="ngo.html">NGOs/Hospitals</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="site-container">
+        <nav class="left-nav">
+            <div class="user-profile">
+                <img src="https://placehold.co/100x100/E2F0D9/333?text=User" alt="User Avatar" class="avatar">
+                <span class="user-name">iupc</span>
+                <span class="user-email">iupc@gmail.com</span>
+            </div>
+            <ul class="nav-links">
+                <li><button class="nav-btn active" onclick="showContent('profile', this)"><i class="fas fa-user-circle"></i> Profile</button></li>
+                <li><button class="nav-btn" onclick="showContent('donations', this)"><i class="fas fa-hand-holding-heart"></i> Donations</button></li>
+                <li><button class="nav-btn" onclick="showContent('badges', this)"><i class="fas fa-medal"></i> Badges</button></li>
+                <li><button class="nav-btn" onclick="showContent('settings', this)"><i class="fas fa-cog"></i> Settings</button></li>
+            </ul>
+            <div class="nav-footer">
+                <button class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </nav>
+        <main class="main-content">
+            <div class="content-area">
+                <section id="profile" class="content-section">
+                    <h2><i class="fas fa-user-edit"></i> Edit Your Profile</h2>
+                    <div class="form-grid">
+                        <div class="form-group"><label for="name">Full Name</label><input type="text" id="name" value="iupc"></div>
+                        <div class="form-group"><label for="email">Email Address</label><input type="email" id="email" value="iupc@gmail.com"></div>
+                        <div class="form-group"><label for="dob">Date of Birth</label><input type="date" id="dob"></div>
+                        <div class="form-group"><label for="blood">Blood Group</label><select id="blood"><option>A+</option><option>O+</option><option>B+</option><option>B-</option><option>A-</option><option>O-</option> </select></div>
+                        <div class="form-group full-width"><label for="address">Address</label><textarea id="address" rows="3">123 Health St, Wellness City</textarea></div>
+                    </div>
+                    <button class="save-btn">Save Changes</button>
+                </section>
+                <section id="donations" class="content-section" style="display: none;">
+                    <h2><i class="fas fa-chart-line"></i> Your Donation Stats</h2>
+                    <div class="stats-container">
+                        <div class="stat-card"> <i class="fas fa-pills"></i><h3>Medicines Donated</h3><p>158</p></div>
+                        <div class="stat-card"> <i class="fas fa-hospital-user"></i><h3>Lives Touched</h3><p>136</p></div>
+                        <div class="stat-card"> <i class="fas fa-calendar-check"></i><h3>Donations This Year</h3><p>12</p></div>
+                    </div>
+                </section>
+                <section id="badges" class="content-section" style="display: none;">
+                    <h2><i class="fas fa-trophy"></i> Your Badges</h2>
+                    <div class="badge-container">
+                        <div class="badge-card"><i class="fas fa-award"></i><h3>First Donation</h3><p>Awarded for making your first contribution.</p></div>
+                        <div class="badge-card"><i class="fas fa-star"></i><h3>Community Helper</h3><p>Awarded after 5 donations.</p></div>
+                        <div class="badge-card locked"><i class="fas fa-shield-alt"></i><h3>Life Saver</h3><p>Awarded after 20 donations.</p></div>
+                    </div>
+                </section>
+                <section id="settings" class="content-section" style="display: none;">
+                    <h2><i class="fas fa-sliders-h"></i> App Settings</h2>
+                    <div class="setting-item"><span>Enable Email Notifications</span></div>
+                    <div class="setting-item"><span>Enable Push Notifications</span></div>
+                    <div class="setting-item"><span>Two-Factor Authentication</span></div>
+                </section>
+            </div>
+            <footer class="site-footer">
+                <div class="footer-content">
+                    <div class="footer-section"><h4>Quick Links</h4><ul><li><a href="#">Dashboard</a></li><li><a href="#">FAQs</a></li></ul></div>
+                    <div class="footer-section"><h4>Contact</h4><p><i class="fas fa-envelope"></i> iupc@gmail.com</p><p><i class="fas fa-phone"></i> +91 4462 455 2002</p></div>
+                    <div class="footer-section"><h4>Follow Us</h4><div class="social-icons"><a href="#"><i class="fab fa-facebook"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div></div>
+                </div>
+                <div class="footer-bottom"><p>&copy; 2025 Medicine Donation Portal. All Rights Reserved.</p></div>
+            </footer>
+        </main>
+    </div>
+
+    <script src="scriptprofile.js"></script>
+</body>
+</html>
+

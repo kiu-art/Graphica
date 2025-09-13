@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Med-Stocks - Medicine Donation Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style> body {
+            font-family: 'Inter', sans-serif;
+            color: #1f2937;
+        }
+        .navbar-logo {
+             font-size: 1.5rem;
+        }
+        .nav-link-hover:hover {
+            color: #22c55e; 
+        }
+        .active-link {
+            border-bottom: 3px solid #22c55e;
+            color: #22c55e;
+            padding-bottom: 4px;
+        }
+        .modal {
+            transition: opacity 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="navbar-logo font-bold text-gray-800 flex items-center">
+                <i class="fas fa-medkit text-green-500 mr-2"></i>
+                Medicine Donation
+            </a>
+            <ul class="hidden md:flex items-center space-x-8">
+                <li><a href="landing_page.html" class="text-gray-600 font-semibold nav-link-hover">Home</a></li>
+                <li><a href="Profile.html"class="text-gray-600 font-semibold nav-link-hover">Profile</a></li>
+                <li><a href="#" class="active-link font-semibold">Med-Stocks</a></li>
+                <li><a href="ngo.html" class="text-gray-600 font-semibold nav-link-hover">NGOs/Hospitals</a></li>
+                
+            </ul>
+            <button class="md:hidden">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+    </header>
+    <main class="container mx-auto px-6 py-12">
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+            <div>
+                <h1 class="text-4xl font-bold text-gray-800">Available Medicine Stocks</h1>
+                <p class="text-gray-500 mt-2">Browse the list of donated medicines available for registered NGOs and hospitals.</p>
+            </div>
+            <div class="flex space-x-3">
+                 <a href="donatemedicine.html"><button class="bg-green-500 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-green-600 transition duration-300 flex items-center">
+                    <i class="fas fa-plus-circle mr-2"></i> Donate Medicine
+                </button></a>
+                <a href="a.html"><button class="bg-white text-green-500 border-2 border-green-500 font-bold py-3 px-6 rounded-lg hover:bg-green-50 transition duration-300 flex items-center">
+                    <i class="fas fa-clipboard-list mr-2"></i> Request Medicine
+                </button></a>
+            </div>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+                <div class="md:col-span-2">
+                    <label for="search" class="block text-sm font-medium text-gray-700 mb-1">Search by Medicine Name</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                            <i class="fas fa-search text-gray-400"></i>
+                        </span>
+                        <input type="text" id="searchInput" class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500" placeholder="e.g., Paracetamol">
+                    </div>
+                </div>
+                <div>
+                    <label for="typeFilter" class="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                    <select id="typeFilter" class="w-full py-2 px-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500">
+                        <option value="all">All Categories</option>
+                        <option value="Tablet">Tablet</option>
+                        <option value="Syrup">Syrup</option>
+                        <option value="Capsule">Capsule</option>
+                        <option value="Ointment">Ointment</option>
+                        <option value="Injection">Injection</option>
+                    </select>
+                </div>
+                 <div>
+                    <label for="expiryFilter" class="block text-sm font-medium text-gray-700 mb-1">Expiry Status</label>
+                    <select id="expiryFilter" class="w-full py-2 px-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500">
+                        <option value="all">All</option>
+                        <option value="valid">Valid</option>
+                        <option value="nearing">Nearing Expiry</option>
+                        <option value="expired">Expired</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full table-auto">
+                    <thead class="bg-gray-100">
+                        <tr>
+                            <th class="text-left font-semibold text-gray-600 px-6 py-4">Medicine Name</th>
+                            <th class="text-left font-semibold text-gray-600 px-6 py-4">Donator(s)</th>
+                            <th class="text-left font-semibold text-gray-600 px-6 py-4">Expiry Date</th>
+                            <th class="text-left font-semibold text-gray-600 px-6 py-4">Amount</th>
+                            <th class="text-left font-semibold text-gray-600 px-6 py-4">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="medicineTableBody" class="divide-y divide-gray-200">
+                    </tbody>
+                </table>
+            </div>
+             <div class="p-6 text-center">
+                <button id="seeMoreBtn" class="bg-gray-200 text-gray-700 font-bold py-2 px-8 rounded-lg hover:bg-gray-300 transition duration-300">
+                    See More
+                </button>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-gray-800 text-white mt-16">
+        <div class="container mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-400 hover:text-white">Home</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white">About Us</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-lg mb-4">Contact</h4>
+                <p class="text-gray-400">iupc@gmail.com</p>
+                <p class="text-gray-400">+91 12345 67890</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-lg mb-4">Disclaimer</h4>
+                <p class="text-gray-400 text-sm">All medicines are donated and distributed with the utmost care. We do not guarantee the condition or suitability of donated medicines.</p>
+            </div>
+        </div>
+    </footer>
+    <div id="detailsModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden opacity-0">
+        <div class="bg-white rounded-lg shadow-2xl w-full max-w-lg transform transition-all scale-95">
+            <div class="flex justify-between items-center p-5 border-b">
+                <h3 class="text-2xl font-bold text-gray-800" id="modalTitle">Medicine Details</h3>
+                <button id="closeModalBtn" class="text-gray-500 hover:text-gray-800">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <div id="modalBody" class="space-y-4 text-gray-600">
+                </div>
+                 <div class="mt-6 text-right">
+                     <button class="bg-green-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-green-600 transition duration-300">
+                        Request This
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        const medicineData = [
+            { name: 'Paracetamol 500mg', donator: 'J. Smith', expiry: '2026-12-31', amount: '100 tablets', type: 'Tablet', details: 'For fever and mild pain. Unopened box.' },
+            { name: 'Ibuprofen 200mg', donator: 'City Clinic', expiry: '2025-08-15', amount: '50 tablets', type: 'Tablet', details: 'Anti-inflammatory drug. Sealed bottle.' },
+            { name: 'Amoxicillin 250mg', donator: 'Anonymous', expiry: '2024-10-20', amount: '2 Strips', type: 'Capsule', details: 'Antibiotic for bacterial infections. Full course.' },
+            { name: 'Cetirizine Syrup', donator: 'M. Patel', expiry: '2026-05-01', amount: '150 ml bottle', type: 'Syrup', details: 'Antihistamine for allergies. Almost full.' },
+            { name: 'Loratadine 10mg', donator: 'Greenwood Pharmacy', expiry: '2025-02-28', amount: '30 tablets', type: 'Tablet', details: 'Non-drowsy allergy relief. Brand new box.' },
+            { name: 'Betadine Ointment', donator: 'Anonymous', expiry: '2027-01-10', amount: '20g tube', type: 'Ointment', details: 'Antiseptic for cuts and wounds.' },
+            { name: 'Dextromethorphan Syrup', donator: 'R. Davis', expiry: '2024-11-30', amount: '100ml bottle', type: 'Syrup', details: 'Cough suppressant. Half bottle remaining.' },
+            { name: 'Azithromycin 500mg', donator: 'Sunrise Hospital', expiry: '2025-09-05', amount: '15 tablets', type: 'Tablet', details: 'Broad-spectrum antibiotic.' },
+            { name: 'Omeprazole 20mg', donator: 'Anonymous', expiry: '2026-04-18', amount: '60 capsules', type: 'Capsule', details: 'For acid reflux and heartburn.' },
+            { name: 'Salbutamol Inhaler', donator: 'L. White', expiry: '2025-07-22', amount: '1 inhaler', type: 'Inhaler', details: 'For asthma relief. Contains approx. 150 puffs.' },
+            { name: 'Insulin Glargine', donator: 'Community Health Org', expiry: '2024-12-05', amount: '5 vials', type: 'Injection', details: 'Long-acting insulin for diabetes management. Requires refrigeration.' },
+            { name: 'Metformin 500mg', donator: 'Anonymous', expiry: '2027-03-14', amount: '200 tablets', type: 'Tablet', details: 'First-line medication for type 2 diabetes.' },
+            { name: 'Atorvastatin 10mg', donator: 'J. Chen', expiry: '2026-11-01', amount: '90 tablets', type: 'Tablet', details: 'To lower cholesterol. Sealed bottle.' },
+            { name: 'Amlodipine 5mg', donator: 'City Clinic', expiry: '2025-10-30', amount: '120 tablets', type: 'Tablet', details: 'For high blood pressure.' },
+            { name: 'Folic Acid 5mg', donator: 'Anonymous', expiry: '2026-08-20', amount: '100 tablets', type: 'Tablet', details: 'Vitamin supplement.' },
+            { name: 'Multivitamin Syrup', donator: 'P. Kumar', expiry: '2025-06-15', amount: '200ml bottle', type: 'Syrup', details: 'Dietary supplement for children.' },
+            { name: 'Clotrimazole Cream', donator: 'Anonymous', expiry: '2025-04-01', amount: '15g tube', type: 'Ointment', details: 'Antifungal cream. Unopened.' },
+            { name: 'Tetanus Toxoid', donator: 'Red Cross Drive', expiry: '2025-01-25', amount: '25 injections', type: 'Injection', details: 'Vaccine for tetanus prevention.' },
+            { name: 'Diclofenac Gel', donator: 'K. Lee', expiry: '2026-02-12', amount: '30g tube', type: 'Ointment', details: 'Topical pain relief gel.' },
+            { name: 'Ranitidine 150mg', donator: 'Anonymous', expiry: '2024-09-30', amount: '50 tablets', type: 'Tablet', details: 'For stomach acid reduction. Note: This medicine is nearing its expiry date.' },
+            { name: 'Aspirin 75mg', donator: 'Elderly Care Home', expiry: '2023-12-31', amount: '200 tablets', type: 'Tablet', details: 'Low-dose aspirin for heart conditions. Note: This item is expired and should be disposed of safely.' },
+            { name: 'Calcium + Vit D3', donator: 'Wellness Center', expiry: '2027-05-20', amount: '150 tablets', type: 'Tablet', details: 'Bone health supplement.' },
+        ];
+
+        const tableBody = document.getElementById('medicineTableBody');
+        const searchInput = document.getElementById('searchInput');
+        const typeFilter = document.getElementById('typeFilter');
+        const expiryFilter = document.getElementById('expiryFilter');
+        const seeMoreBtn = document.getElementById('seeMoreBtn');
+        const modal = document.getElementById('detailsModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalBody = document.getElementById('modalBody');
+
+        let visibleRows = 10;
+
+        function getExpiryStatus(expiryDate) {
+            const now = new Date();
+            const expiry = new Date(expiryDate);
+            const threeMonthsFromNow = new Date(now.setMonth(now.getMonth() + 3));
+            now.setMonth(now.getMonth() - 3); 
+
+            if (expiry < now) {
+                return { status: 'expired', class: 'text-red-600 font-semibold', icon: 'fa-exclamation-circle' };
+            } else if (expiry < threeMonthsFromNow) {
+                return { status: 'nearing', class: 'text-yellow-600 font-semibold', icon: 'fa-exclamation-triangle' };
+            } else {
+                return { status: 'valid', class: 'text-gray-700', icon: '' };
+            }
+        }
+        
+        function renderTable() {
+            tableBody.innerHTML = '';
+            
+            const searchTerm = searchInput.value.toLowerCase();
+            const selectedType = typeFilter.value;
+            const selectedExpiry = expiryFilter.value;
+
+            const filteredData = medicineData.filter(med => {
+                const expiryInfo = getExpiryStatus(med.expiry);
+                const matchesSearch = med.name.toLowerCase().includes(searchTerm);
+                const matchesType = selectedType === 'all' || med.type === selectedType;
+                const matchesExpiry = selectedExpiry === 'all' || expiryInfo.status === selectedExpiry;
+
+                return matchesSearch && matchesType && matchesExpiry;
+            });
+
+
+            const dataToRender = filteredData.slice(0, visibleRows);
+
+            if (dataToRender.length === 0) {
+                 tableBody.innerHTML = `<tr><td colspan="5" class="text-center py-10 text-gray-500">
+                    <i class="fas fa-box-open fa-3x mb-3"></i><br>No medicines found matching your criteria.
+                 </td></tr>`;
+            } else {
+                dataToRender.forEach((med, index) => {
+                    const expiryInfo = getExpiryStatus(med.expiry);
+                    const row = document.createElement('tr');
+                    row.className = 'hover:bg-gray-50';
+                    row.innerHTML = `
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="text-sm font-medium text-gray-900">${med.name}</div>
+                            <div class="text-sm text-gray-500">${med.type}</div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${med.donator}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm ${expiryInfo.class}">
+                            <i class="fas ${expiryInfo.icon} mr-1"></i>
+                            ${new Date(med.expiry).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${med.amount}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                            <button class="details-btn text-green-600 hover:text-green-800" data-index="${index}">More Details</button>
+                        </td>
+                    `;
+                    row.querySelector('.details-btn').addEventListener('click', () => showModal(filteredData[index]));
+                    tableBody.appendChild(row);
+                });
+            }
+            if (visibleRows >= filteredData.length) {
+                seeMoreBtn.style.display = 'none';
+            } else {
+                seeMoreBtn.style.display = 'inline-block';
+            }
+        }
+        
+        function showModal(med) {
+            const expiryInfo = getExpiryStatus(med.expiry);
+            modalTitle.textContent = med.name;
+            modalBody.innerHTML = `
+                <p><strong>Donator:</strong> ${med.donator}</p>
+                <p><strong>Category:</strong> ${med.type}</p>
+                <p><strong>Available Amount:</strong> ${med.amount}</p>
+                <p><strong>Expiry Date:</strong> <span class="${expiryInfo.class}">${new Date(med.expiry).toLocaleDateString()}</span></p>
+                <p><strong>Details:</strong> ${med.details}</p>
+            `;
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.querySelector('div > div').classList.remove('scale-95');
+            }, 10);
+        }
+
+        function hideModal() {
+            modal.classList.add('opacity-0');
+            modal.querySelector('div > div').classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+        
+        searchInput.addEventListener('keyup', () => {
+             visibleRows = 10;
+             renderTable();
+        });
+        typeFilter.addEventListener('change',() => {
+             visibleRows = 10; 
+             renderTable();
+        });
+        expiryFilter.addEventListener('change',() => {
+             visibleRows = 10;
+             renderTable();
+        });
+
+        seeMoreBtn.addEventListener('click', function() {
+            visibleRows += 10;
+            renderTable();
+        });
+
+        closeModalBtn.addEventListener('click', hideModal);
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                hideModal();
+            }
+        });
+        renderTable();
+    });
+    </script>
+</body>
+</html>

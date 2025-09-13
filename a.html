@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Medicine | Medicine Donation Portal</title>
+    <link rel="stylesheet" href="request-medicine.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<link rel="stylesheet" href="astyle.css">
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="40"><path fill="#23c754" d="M256 120L256 160L384 160L384 120C384 115.6 380.4 112 376 112L264 112C259.6 112 256 115.6 256 120zM208 128L208 120C208 89.1 233.1 64 264 64L376 64C406.9 64 432 89.1 432 120L432 544L208 544L208 128zM160 240L160 544L128 544C92.7 544 64 515.3 64 480L64 224C64 188.7 92.7 160 128 160L160 160L160 240zM480 544L480 160L512 160C547.3 160 576 188.7 576 224L576 480C576 515.3 547.3 544 512 544L480 544zM308 272C299.2 272 292 279.2 292 288L292 324L256 324C247.2 324 240 331.2 240 340L240 364C240 372.8 247.2 380 256 380L292 380L292 416C292 424.8 299.2 432 308 432L332 432C340.8 432 348 424.8 348 416L348 380L384 380C392.8 380 400 372.8 400 364L400 340C400 331.2 392.8 324 384 324L348 324L348 288C348 279.2 340.8 272 332 272L308 272z"/></svg>
+                <span>Medicine Donation Portal</span>
+            </div>
+            <nav class="main-nav">
+                <a href="landing_page.html">Home</a>
+                <a href="Profile.html">Profile</a>
+                <a href="med_stocks.html">Medicine Stocks</a>
+                <a href="request-medicine.html" class="active">NGOs/Hospitals</a>
+            </nav>
+        </div>
+    </header>
+    <main class="page-container">
+        <section class="action-bar">
+            <h1>Find and Request Lifesaving Medicines</h1>
+            <p>Search our inventory of available medicines donated by generous people.</p>
+            <div class="shortcut-buttons">
+                <a href="donatemedicine.html"><button class="btn-shortcut donate"><i class="fas fa-gift"></i> Donate Medicine</button></a>
+                
+            </div>
+        </section>
+        <section class="search-filter-container">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search for medicines (e.g., Paracetamol)">
+            </div>
+            <div class="filters">
+                <select name="category">
+                    <option value="">All Categories</option>
+                    <option value="pain-relief">Pain Relief</option>
+                    <option value="fever">Fever</option>
+                    <option value="antibiotics">Antibiotics</option>
+                    <option value="vitamins">Vitamins</option>
+                </select>
+                <select name="availability">
+                    <option value="">Availability</option>
+                    <option value="in-stock">In Stock</option>
+                    <option value="low-stock">Low Stock</option>
+                </select>
+                <button class="btn-filter">Apply Filters</button>
+            </div>
+        </section>
+        <section class="medicine-grid">
+            <div class="medicine-card"><div class="stock-indicator"></div><img src="https://placehold.co/200x150/e9f9ee/23c754?text=Crocin" alt="Crocin"><div class="card-content"><h3>Crocin 500mg</h3><p>Pain & Fever Relief</p><button class="btn-request" onclick="openModal('Crocin 500mg')">Request</button></div></div>
+            <div class="medicine-card"><div class="stock-indicator"></div><img src="https://placehold.co/200x150/e9f9ee/23c754?text=Benadryl" alt="Benadryl"><div class="card-content"><h3>Benadryl Syrup</h3><p>Cough & Cold</p><button class="btn-request" onclick="openModal('Benadryl Syrup')">Request</button></div></div>
+            <div class="medicine-card low-stock"><div class="stock-indicator"></div><img src="https://placehold.co/200x150/fff0e2/ffc107?text=Azithral" alt="Azithral"><div class="card-content"><h3>Azithral 500</h3><p>Antibiotic</p><button class="btn-request" onclick="openModal('Azithral 500')">Request</button></div></div>
+            <div class="medicine-card"><div class="stock-indicator"></div><img src="https://placehold.co/200x150/e9f9ee/23c754?text=Vitamin+C" alt="Vitamin C"><div class="card-content"><h3>Limcee (Vitamin C)</h3><p>Immunity Booster</p><button class="btn-request" onclick="openModal('Limcee (Vitamin C)')">Request</button></div></div>
+            <div class="medicine-card"><div class="stock-indicator"></div><img src="https://placehold.co/200x150/e9f9ee/23c754?text=Combiflam" alt="Combiflam"><div class="card-content"><h3>Combiflam</h3><p>Pain Relief</p><button class="btn-request" onclick="openModal('Combiflam')">Request</button></div></div>
+            <div class="medicine-card"><div class="stock-indicator"></div><img src="https://placehold.co/200x150/e9f9ee/23c754?text=Dolo+650" alt="Dolo 650"><div class="card-content"><h3>Dolo 650</h3><p>Fever</p><button class="btn-request" onclick="openModal('Dolo 650')">Request</button></div></div>
+            <div class="medicine-card"><div class="stock-indicator"></div><img src="https://placehold.co/200x150/e9f9ee/23c754?text=Gelusil" alt="Gelusil"><div class="card-content"><h3>Gelusil MPS</h3><p>Acidity Relief</p><button class="btn-request" onclick="openModal('Gelusil MPS')">Request</button></div></div>
+            <div class="medicine-card"><div class="stock-indicator"></div><img src="https://placehold.co/200x150/e9f9ee/23c754?text=Volini" alt="Volini"><div class="card-content"><h3>Volini Spray</h3><p>Pain Relief Spray</p><button class="btn-request" onclick="openModal('Volini Spray')">Request</button></div></div>
+            <div class="medicine-card"><div class="stock-indicator"></div><img src="https://placehold.co/200x150/e9f9ee/23c754?text=Cetirizine" alt="Cetirizine"><div class="card-content"><h3>Cetirizine</h3><p>Anti-Allergy</p><button class="btn-request" onclick="openModal('Cetirizine')">Request</button></div></div>
+            <div class="medicine-card"><div class="stock-indicator"></div><img src="https://placehold.co/200x150/e9f9ee/23c754?text=Electral" alt="Electral"><div class="card-content"><h3>Electral Powder</h3><p>Dehydration</p><button class="btn-request" onclick="openModal('Electral Powder')">Request</button></div></div>
+            <div class="medicine-card"><div class="stock-indicator"></div><img src="https://placehold.co/200x150/e9f9ee/23c754?text=Paracetamol" alt="Paracetamol"><div class="card-content"><h3>Paracetamol 500mg</h3><p>Fever</p><button class="btn-request" onclick="openModal('Paracetamol 500mg')">Request</button></div></div>
+            <div class="medicine-card"><div class="stock-indicator"></div><img src="https://placehold.co/200x150/e9f9ee/23c754?text=Amoxicillin" alt="Amoxicillin"><div class="card-content"><h3>Amoxicillin</h3><p>Antibiotic</p><button class="btn-request" onclick="openModal('Amoxicillin')">Request</button></div></div>
+            <div class="medicine-card"><div class="stock-indicator"></div><img src="https://placehold.co/200x150/e9f9ee/23c754?text=Aspirin" alt="Aspirin"><div class="card-content"><h3>Aspirin 75mg</h3><p>Pain Relief</p><button class="btn-request" onclick="openModal('Aspirin 75mg')">Request</button></div></div>
+            <div class="medicine-card"><div class="stock-indicator"></div><img src="https://placehold.co/200x150/e9f9ee/23c754?text=Ibuprofen" alt="Ibuprofen"><div class="card-content"><h3>Ibuprofen</h3><p>Pain Relief</p><button class="btn-request" onclick="openModal('Ibuprofen')">Request</button></div></div>
+            <div class="medicine-card"><div class="stock-indicator"></div><img src="https://placehold.co/200x150/e9f9ee/23c754?text=Loratadine" alt="Loratadine"><div class="card-content"><h3>Loratadine</h3><p>Anti-Allergy</p><button class="btn-request" onclick="openModal('Loratadine')">Request</button></div></div>
+            <div class="medicine-card"><div class="stock-indicator"></div><img src="https://placehold.co/200x150/e9f9ee/23c754?text=Omeprazole" alt="Omeprazole"><div class="card-content"><h3>Omeprazole</h3><p>Acidity</p><button class="btn-request" onclick="openModal('Omeprazole')">Request</button></div></div>
+            <div class="medicine-card"><div class="stock-indicator"></div><img src="https://placehold.co/200x150/e9f9ee/23c754?text=Vitamin+D3" alt="Vitamin D3"><div class="card-content"><h3>Vitamin D3</h3><p>Supplement</p><button class="btn-request" onclick="openModal('Vitamin D3')">Request</button></div></div>
+            <div class="medicine-card"><div class="stock-indicator"></div><img src="https://placehold.co/200x150/e9f9ee/23c754?text=B+Complex" alt="B Complex"><div class="card-content"><h3>B Complex</h3><p>Supplement</p><button class="btn-request" onclick="openModal('B Complex')">Request</button></div></div>
+            <div class="medicine-card"><div class="stock-indicator"></div><img src="https://placehold.co/200x150/e9f9ee/23c754?text=Ondansetron" alt="Ondansetron"><div class="card-content"><h3>Ondansetron</h3><p>Anti-emetic</p><button class="btn-request" onclick="openModal('Ondansetron')">Request</button></div></div>
+            <div class="medicine-card"><div class="stock-indicator"></div><img src="https://placehold.co/200x150/e9f9ee/23c754?text=Metformin" alt="Metformin"><div class="card-content"><h3>Metformin</h3><p>Anti-diabetic</p><button class="btn-request" onclick="openModal('Metformin')">Request</button></div></div>
+        </section>
+
+        <div class="see-more-container">
+            <button class="btn-see-more">See More Medicines</button>
+        </div>
+    </main>
+    
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section"><h4>Quick Links</h4><ul><li><a href="index.html">Dashboard</a></li><li><a href="#">FAQs</a></li></ul></div>
+            <div class="footer-section"><h4>Contact</h4><p><i class="fas fa-envelope"></i> info@example.com</p><p><i class="fas fa-phone"></i> +91 4462 455 2002</p></div>
+            <div class="footer-section"><h4>Follow Us</h4><div class="social-icons"><a href="#"><i class="fab fa-facebook"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2025 Medicine Donation Portal. All Rights Reserved.</p></div>
+    </footer>
+    <div id="requestModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <form id="requestForm">
+                <h2>Request Medicine</h2>
+                <p>Please fill out the details below to complete your request.</p>
+
+                <div class="form-group">
+                    <label for="medicineName">Selected Medicine</label>
+                    <input type="text" id="medicineName" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantity Required</label>
+                    <input type="number" id="quantity" min="1" max="10" placeholder="e.g., 2" required>
+                </div>
+                 <div class="form-group">
+                    <label for="prescription">Upload Doctor's Prescription</label>
+                    <input type="file" id="prescription" required accept="image/*,.pdf">
+                    <small>A valid prescription is mandatory for most medicines.</small>
+                </div>
+                <div class="form-group">
+                    <label for="address">Full Shipment Address</label>
+                    <textarea id="address" rows="3" placeholder="Enter your complete address" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Payment Option</label>
+                    <div class="payment-options">
+                        <label><input type="radio" name="payment" value="cod" checked> Cash on Delivery (COD)</label>
+                        <label><input type="radio" name="payment" value="upi"> UPI</label>
+                    </div>
+                    <small>Note: A nominal delivery fee may apply.</small>
+                </div>
+                <button type="submit" class="btn-submit">Login to Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="ascript.js"></script>
+</body>
+</html>
